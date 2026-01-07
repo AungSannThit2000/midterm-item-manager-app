@@ -47,8 +47,8 @@ function ItemManager () {
   };
 
   const handleAddItem = () => {
-   if (!formData.name || !formData.category || !formData.price) {
-    setErrorMsg("All fields are required.");
+   if (!formData.name ) {
+    setErrorMsg("Item name must not be empty");
     return;
   }
 
