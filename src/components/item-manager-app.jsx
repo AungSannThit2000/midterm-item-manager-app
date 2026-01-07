@@ -51,6 +51,24 @@ function ItemManager () {
     setErrorMsg("Item name must not be empty");
     return;
   }
+  if (!formData.category ) {
+    setErrorMsg("Please select a category");
+    return;
+  }
+  if (!formData.price || Number(formData.price) < 0 ) {
+    setErrorMsg("Price must not be less than 0");
+    return;
+  }
+
+  const isDuplicate = items.some(
+  item => item.name.toLowerCase() === formData.name.trim().toLowerCase()
+  );
+
+  if (isDuplicate) {
+    setErrorMsg("Item must not be duplicated");
+    return;
+  }
+
 
   const newItem = {
     ...formData,
